@@ -101,4 +101,48 @@ export class ProductsSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
+export class GatewaysSchema extends BaseModel {
+  static $columns = ['createdAt', 'id', 'name', 'updatedAt', 'is_active', 'priority'] as const
+  $columns = GatewaysSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare name: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+  @column
+  declare is_active: boolean
+  @column
+  declare priority: number
+}
+
+
+export class transactionsProductsSchema extends BaseModel {
+  static $columns = ['createdAt', 'id', 'product_id', 'transaction_id', 'quantity', 'updatedAt'] as const
+  $columns = transactionsProductsSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column({ isPrimary: true})
+  declare id: number
+  @column()
+  declare product_id:
+  @column()
+  declare transaction_id:
+  @column()
+  declare quantity: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true})
+}
+
+
+export class TransactionsSchema extends BaseModel {
+  static $columns = ['amount', 'client', 'createdAt', 'gateway', 'id', 'status', 'external_id', 'updatedAt', 'card_last_numbers'] as const
+  $columns = TransactionsSchema.$columns
+  @column()
+  declare amount: number
+  @column()
+  declare client: ClientSchema
+}
+
 
