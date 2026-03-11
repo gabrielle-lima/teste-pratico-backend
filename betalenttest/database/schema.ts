@@ -85,17 +85,20 @@ export class ClientSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
-
 export class ProductsSchema extends BaseModel {
   static $columns = ['createdAt', 'id', 'name', 'amount', 'updatedAt'] as const
 
   $columns = ProductsSchema.$columns
-  @column.dateTime({autoCreate: true})
+  @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
-  @column({isPrimary: true})
+  @column({ isPrimary: true })
   declare id: number
   @column()
   declare name: string
   @column()
-
+  declare amount: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
 }
+
+
