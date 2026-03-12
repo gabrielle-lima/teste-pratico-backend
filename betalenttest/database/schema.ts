@@ -43,21 +43,120 @@ export class AuthAccessTokenSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
-export class UserSchema extends BaseModel {
+export class ClientSchema extends BaseModel {
+  static $columns = ['createdAt', 'email', 'id', 'name', 'updatedAt'] as const
+  $columns = ClientSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare email: string
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare name: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class GatewaySchema extends BaseModel {
+  static $columns = ['createdAt', 'id', 'isActive', 'name', 'priority', 'updatedAt'] as const
+  $columns = GatewaySchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare isActive: boolean
+  @column()
+  declare name: string
+  @column()
+  declare priority: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class ProductSchema extends BaseModel {
+  static $columns = ['amount', 'createdAt', 'id', 'name', 'updatedAt'] as const
+  $columns = ProductSchema.$columns
+  @column()
+  declare amount: number
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare name: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class TransactionSchema extends BaseModel {
+  static $columns = [
+    'amount',
+    'cardLastNumbers',
+    'clientId',
+    'createdAt',
+    'cvv',
+    'externalId',
+    'gatewayId',
+    'id',
+    'status',
+    'updatedAt',
+  ] as const
+  $columns = TransactionSchema.$columns
+  @column()
+  declare amount: number
+  @column()
+  declare cardLastNumbers: number
+  @column()
+  declare clientId: number | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare cvv: number
+  @column()
+  declare externalId: number | null
+  @column()
+  declare gatewayId: number | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare status: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class TransactionsProductSchema extends BaseModel {
   static $columns = [
     'createdAt',
-    'email',
-    'fullName',
     'id',
-    'password',
+    'productId',
+    'quantity',
+    'transactionId',
     'updatedAt',
-    'role',
   ] as const
+  $columns = TransactionsProductSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare productId: number
+  @column()
+  declare quantity: number
+  @column()
+  declare transactionId: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class UserSchema extends BaseModel {
+  static $columns = ['createdAt', 'email', 'fullName', 'id', 'password', 'updatedAt'] as const
   $columns = UserSchema.$columns
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
   @column()
-  declare email: string
+  declare email: string | null
   @column()
   declare fullName: string | null
   @column({ isPrimary: true })
@@ -66,83 +165,4 @@ export class UserSchema extends BaseModel {
   declare password: string
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
-  @column()
-  declare Role: 'admin' | 'user' | 'finance' | 'manager'
 }
-
-export class ClientSchema extends BaseModel {
-  static $columns = ['createdAt', 'id', 'name', 'email', 'updatedAt'] as const
-  $columns = ClientSchema.$columns
-  @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime
-  @column({ isPrimary: true })
-  declare id: number
-  @column()
-  declare name: string
-  @column()
-  declare email: string
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
-}
-
-export class ProductsSchema extends BaseModel {
-  static $columns = ['createdAt', 'id', 'name', 'amount', 'updatedAt'] as const
-
-  $columns = ProductsSchema.$columns
-  @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime
-  @column({ isPrimary: true })
-  declare id: number
-  @column()
-  declare name: string
-  @column()
-  declare amount: number
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
-}
-
-export class GatewaysSchema extends BaseModel {
-  static $columns = ['createdAt', 'id', 'name', 'updatedAt', 'is_active', 'priority'] as const
-  $columns = GatewaysSchema.$columns
-  @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime
-  @column({ isPrimary: true })
-  declare id: number
-  @column()
-  declare name: string
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
-  @column
-  declare is_active: boolean
-  @column
-  declare priority: number
-}
-
-
-export class transactionsProductsSchema extends BaseModel {
-  static $columns = ['createdAt', 'id', 'product_id', 'transaction_id', 'quantity', 'updatedAt'] as const
-  $columns = transactionsProductsSchema.$columns
-  @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime
-  @column({ isPrimary: true})
-  declare id: number
-  @column()
-  declare product_id:
-  @column()
-  declare transaction_id:
-  @column()
-  declare quantity: number
-  @column.dateTime({ autoCreate: true, autoUpdate: true})
-}
-
-
-export class TransactionsSchema extends BaseModel {
-  static $columns = ['amount', 'client', 'createdAt', 'gateway', 'id', 'status', 'external_id', 'updatedAt', 'card_last_numbers'] as const
-  $columns = TransactionsSchema.$columns
-  @column()
-  declare amount: number
-  @column()
-  declare client: ClientSchema
-}
-
-

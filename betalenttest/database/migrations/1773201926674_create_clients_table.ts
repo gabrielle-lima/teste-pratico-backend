@@ -4,16 +4,16 @@ export default class extends BaseSchema {
   protected tableName = 'clients'
 
   async up() {
-    this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
+    this.schema.createTableIfNotExists(this.tableName, (table) => {
+      table.increments('id').primary().notNullable()
       table.string('name').notNullable()
-      table.strimg('email').notNullable().unique()
+      table.string('email').notNullable()
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })
   }
 
   async down() {
-    this.schema.dropTable(this.tableName)
+    this.schema.dropTableIfExists(this.tableName)
   }
 }
