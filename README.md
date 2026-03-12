@@ -251,3 +251,8 @@ Aproveite para conhecer e se inscrever na **BeTalent Academy**, nossa newsletter
 ---
 
 Boa sorte! 🍀
+
+
+# Dificuldades e conquistas no teste técnico:
+
+- Sofri um pouco para fazer as migrations funcionarem, houve vários conlitos até acertar como agora.
