@@ -256,3 +256,6 @@ Boa sorte! 🍀
 # Dificuldades e conquistas no teste técnico:
 
 - Sofri um pouco para fazer as migrations funcionarem, houve vários conlitos até acertar como agora.
+- Nunca havia trabalhado com outro framework sem ser Express, então apesar da facilidade em orientação a objetos, é novidade para mim.
+- Devorando a documentação do AdonisJS/Lucid ORM/ VineJS
+
