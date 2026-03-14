@@ -259,6 +259,10 @@ Boa sorte! 🍀
 - Nunca havia trabalhado com outro framework sem ser Express, então apesar da facilidade em orientação a objetos, é novidade para mim.
 - Devorando a documentação do AdonisJS/Lucid ORM/ VineJS
 - Entender como a autenticação/autorização baseada em Roles funciona no AdonisJS
+- Muito tempo sem programar em Javascript/Typescript
+- Apesar de ser baseada em POO, tem suas suas peculiaridades sendo diferente do java
+- Nunca havia mexido no AdoniJS
+- Nunc fiz algo relacionado a gateways
 
 
 
