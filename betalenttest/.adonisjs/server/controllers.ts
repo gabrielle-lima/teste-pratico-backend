@@ -11,5 +11,4 @@ export const controllers = {
   Products: () => import('#controllers/products_controller'),
   Profile: () => import('#controllers/profile_controller'),
   Transactions: () => import('#controllers/transactions_controller'),
-  Transacoes: () => import('#controllers/transacoes_controller'),
 }

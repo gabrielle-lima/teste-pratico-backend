@@ -22,8 +22,4 @@ export interface ApiDefinition {
     update: typeof routes['transactions.update']
     chargeback: typeof routes['transactions.chargeback']
   }
-  transacoes: {
-    index: typeof routes['transacoes.index']
-    store: typeof routes['transacoes.store']
-  }
 }

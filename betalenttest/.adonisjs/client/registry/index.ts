@@ -54,18 +54,6 @@ const routes = {
     tokens: [{"old":"/transactions/:id/charge_back","type":0,"val":"transactions","end":""},{"old":"/transactions/:id/charge_back","type":1,"val":"id","end":""},{"old":"/transactions/:id/charge_back","type":0,"val":"charge_back","end":""}],
     types: placeholder as Registry['transactions.chargeback']['types'],
   },
-  'transacoes.index': {
-    methods: ["GET","HEAD"],
-    pattern: '/transacoes',
-    tokens: [{"old":"/transacoes","type":0,"val":"transacoes","end":""}],
-    types: placeholder as Registry['transacoes.index']['types'],
-  },
-  'transacoes.store': {
-    methods: ["POST"],
-    pattern: '/transacoes',
-    tokens: [{"old":"/transacoes","type":0,"val":"transacoes","end":""}],
-    types: placeholder as Registry['transacoes.store']['types'],
-  },
 } as const satisfies Record<string, AdonisEndpoint>
 
 export { routes }

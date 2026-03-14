@@ -24,12 +24,14 @@ export default class GatewaysController {
   /**
    * Edit individual record
    */
-  async edit({ params }: HttpContext) {}
+  async edit({ params }: HttpContext) {
+    const
+  }
 
   /**
    * Handle form submission for the edit action
    */
-  async update({ params, request }: HttpContext) {}
+  async update({  }: HttpContext) {}
 
   /**
    * Delete record

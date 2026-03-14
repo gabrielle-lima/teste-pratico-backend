@@ -17,13 +17,6 @@ export default class extends BaseSchema {
   async down() {
     this.schema.alterTable('users', (table) => {
       this.schema.dropTableIfExists(this.tableName)
-      this.schema.raw('DROP TYPE IF EXISTS "role" ')
-      table.dropIndex(['email'], 'users_email_unique')
-      table.enu('role', ['ADMIN', 'USER', 'MANAGER', 'FINANCE'], {
-        existingType: false,
-        useNative: false,
-        enumName: 'role',
-      })
     })
   }
 }

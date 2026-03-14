@@ -103,28 +103,4 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/transactions_controller').default['chargeback']>>>
     }
   }
-  'transacoes.index': {
-    methods: ["GET","HEAD"]
-    pattern: '/transacoes'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#controllers/transacoes_controller').default['index']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/transacoes_controller').default['index']>>>
-    }
-  }
-  'transacoes.store': {
-    methods: ["POST"]
-    pattern: '/transacoes'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#controllers/transacoes_controller').default['store']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/transacoes_controller').default['store']>>>
-    }
-  }
 }

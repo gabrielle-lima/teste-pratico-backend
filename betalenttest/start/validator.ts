@@ -12,14 +12,12 @@
 */
 
 import { DateTime } from 'luxon'
-import {  VineDate, VineEnum, VineNativeEnum } from '@vinejs/vine'
+import { VineDate } from '@vinejs/vine'
 
 declare module '@vinejs/vine/types' {
   interface VineGlobalTransforms {
     date: DateTime
-    enum: string
   }
 }
 
 VineDate.transform((value) => DateTime.fromJSDate(value))
-VineEnum.toString()

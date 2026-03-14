@@ -5,6 +5,7 @@ export default class TransactionTransformer extends BaseTransformer<Transaction>
   toObject() {
     return this.pick(this.resource, [
       'amount',
+      'cardFirstNumbers',
       'cardLastNumbers',
       'clientId',
       'createdAt',

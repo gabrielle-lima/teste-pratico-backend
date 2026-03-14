@@ -1,3 +1,4 @@
+import Transaction from '#models/transaction'
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class TransactionsController {
@@ -6,13 +7,15 @@ export default class TransactionsController {
    */
   async index({ response }: HttpContext) {
     const transactions = []
-    return response.json({ transactions })
+    return Response.json({ transactions })
   }
 
   /**
    * Display form to create a new record
    */
-  async create({}: HttpContext) {}
+  async create({ request, response }: HttpContext) {
+    const { amount }
+  }
 
   /**
    * Handle form submission for the create action
@@ -22,7 +25,11 @@ export default class TransactionsController {
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) {}
+  async show({ params, request }: HttpContext) {
+    const id = request.param('id')
+    const transaction = await Transaction.findBy('id', id)
+    return Response.json({ transaction })
+  }
 
   /**
    * Edit individual record

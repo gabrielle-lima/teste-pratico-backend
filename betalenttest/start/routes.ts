@@ -41,8 +41,3 @@ router.group(() => {
   router.post('/transactions/:id/charge_back', [controllers.Transactions, 'chargeback'])
 })
 
-router.group(() => {
-  router.get('/transacoes',[controllers.Transacoes, 'index'])
-router.post('/transacoes', [controllers.Transacoes, 'store'])
-})
-
