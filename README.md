@@ -267,5 +267,5 @@ Boa sorte! 🍀
 Baixar o repositório fazendo um git clone
 
 ```
-git clone
+git clone   [https://github.com/gabrielle-lima/teste-pratico-backend.git](https://github.com/gabrielle-lima/teste-pratico-backend.git)
 ```
