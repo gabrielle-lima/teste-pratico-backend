@@ -1,5 +1,5 @@
 import app from '@adonisjs/core/services/app'
-import { type HttpContext, ExceptionHandler } from '@adonisjs/core/http'
+import { type HttpContext, errors, ExceptionHandler } from '@adonisjs/core/http'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
   /**
@@ -8,11 +8,21 @@ export default class HttpExceptionHandler extends ExceptionHandler {
    */
   protected debug = !app.inProduction
 
-  /**
-   * The method is used for handling errors and returning
-   * response to the client
-   */
   async handle(error: unknown, ctx: HttpContext) {
+    /**
+     * For API requests, return JSON instead
+     */
+    if (error instanceof errors.E_ROUTE_NOT_FOUND && ctx.request.accepts(['json'])) {
+      return ctx.response.status(404).json({
+        error: 'Route not found',
+        message: `Cannot ${ctx.request.method()} ${ctx.request.url()}`,
+      })
+    }
+
+    /**
+     * Handle route not found errors by rendering a custom 404 page
+     */
+
     return super.handle(error, ctx)
   }
 
