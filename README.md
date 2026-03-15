@@ -262,7 +262,10 @@ Boa sorte! 🍀
 - Muito tempo sem programar em Javascript/Typescript
 - Apesar de ser baseada em POO, tem suas suas peculiaridades sendo diferente do java
 - Nunca havia mexido no AdoniJS
-- Nunc fiz algo relacionado a gateways
+- Nunca fiz algo relacionado a gateways
+- Necessito estudar JS, TS, e mais outras coisas além do Docker
+- Acabei usando a IA pra me auxilir mas usando senso crítico
+- Acabei me atrapalhando nessas camadas do AdonisJS
 
 
 
